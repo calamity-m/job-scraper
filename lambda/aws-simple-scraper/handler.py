@@ -48,9 +48,11 @@ def scrape_site(url):
                'date': date,
                'salary': salary,})
 
+    # Return our jobs dict
     return jobs
 
 def ses_email(subject, body_text, body_html, sender, receiver):
+    # Charset for our SES Email
     CHARSET = "UTF-8"
     # Create a new SES resource and specify a region.
     client = boto3.client('ses',region_name="us-west-2")
@@ -93,9 +95,11 @@ def ses_email(subject, body_text, body_html, sender, receiver):
 
 def hello(event, context):
     
+    # Scrape jobs
     jobs = scrape_site()
     print(jobs)
     
+    # Subject
     SUBJECT = "Daily Web Job Scraping"
     
     # The email body for recipients with non-HTML email clients.
