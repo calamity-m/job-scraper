@@ -6,8 +6,9 @@ provider:
   name: aws
   runtime: python3.6
   region: us-west-2
+  memorySize: 128
   versionFunctions: false
-
+  
 functions:
   hello:
     handler: handler.hello
