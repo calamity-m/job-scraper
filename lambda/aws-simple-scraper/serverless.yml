@@ -8,6 +8,11 @@ provider:
   region: us-west-2
   memorySize: 128
   versionFunctions: false
+  iamRoleStatements:
+      - Effect: Allow
+        Action: 
+            - ses:SendEmail
+        Resource: "*"
   
 functions:
   hello:
