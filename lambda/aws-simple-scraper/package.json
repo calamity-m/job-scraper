@@ -1,0 +1,9 @@
+{
+  "name": "aws-simple-scraper",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "serverless-python-requirements": "^4.0.2"
+  },
+  "devDependencies": {}
+}

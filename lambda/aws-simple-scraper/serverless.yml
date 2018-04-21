@@ -1,0 +1,16 @@
+
+
+service: aws-simple-scraper
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: us-west-2
+  versionFunctions: false
+
+functions:
+  hello:
+    handler: handler.hello
+    
+plugins:
+  - serverless-python-requirements
