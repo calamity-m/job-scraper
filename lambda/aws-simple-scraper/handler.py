@@ -97,7 +97,6 @@ def hello(event, context):
     
     # Scrape jobs
     jobs = scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
-    print(jobs)
     
     # Subject
     SUBJECT = "Daily Web Job Scraping"
