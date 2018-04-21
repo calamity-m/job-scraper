@@ -1,6 +1,7 @@
 import json
 import requests
-import bs4
+import boto3
+from botocore.exceptions import ClientError
 from bs4 import BeautifulSoup
 
 def resolve_span(div, attr):
@@ -92,46 +93,38 @@ def ses_email(subject, body_text, body_html, sender, receiver):
 
 def hello(event, context):
     
-    html = requests.get("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
-    soup = BeautifulSoup(html.text, 'html.parser')
-    
-    jobs = []
-
-    for div in soup.find_all(name="div", attrs={"class": "result"}):
-        
-        # Title
-        title = div.find(name="a", attrs={"data-tn-element":"jobTitle"})["title"]
-        
-        # Company
-        company = div.find(name="span", attrs={"class":"company"}).text.strip()
-        # Location
-        location = div.find(name="span", attrs={"class":"location"}).text.strip()
-        
-        # Description
-        description = div.find(name="span", attrs={"class":"summary"}).text.strip()
-        
-        # Date
-        date = ""
-        try: 
-            date = div.find(name="span", attrs={"class":"date"}).text.strip()
-        except AttributeError as e:
-            date = "N/A"
-        
-        # Salary
-        salary = ""
-        try:
-            salary = div.find(name="span", attrs={"class":"no-wrap"}).text.strip()
-        except AttributeError as e:
-            salary = "N/A"
-        
-        jobs.append({'title': title,
-               'company': company,
-               'location': location,
-               'description': description,
-               'date': date,
-               'salary': salary,})
-
+    jobs = scrape_site()
     print(jobs)
+    
+    SUBJECT = "Daily Web Job Scraping"
+    
+    # The email body for recipients with non-HTML email clients.
+    BODY_TEXT = ( "Amazon SES Test (Python)\r\n"
+             "This email was sent with Amazon SES using the "
+             "AWS SDK for Python (Boto)."
+                )
+
+    display = """ <html> <body>
+        <h1> Daily Web Job Scraping </h1>
+        <p> Hi There, here's your daily job list update! </p> """
+    
+    for j in jobs:
+        display += """
+        <p> <b>Job:</b> %s <br>
+        <b>Company:</b> %s <br>
+        <b>Description:</b> %s <br>
+        <b>Location:</b> %s <br>
+        <b>Date:</b> %s <br>
+        <b>Salary:</b> %s </p>
+        <br> """ %(j.get("title"), j.get("company"), j.get("description"), 
+        j.get("location"), j.get("date"), j.get("salary"))
+
+    display += """
+        </body>
+        </html>
+        """
+
+    ses_email(SUBJECT, BODY_TEXT, display, "markmonteno@gmail.com", "markmonteno@gmail.com")
     
     body = {
         "message": "Go Serverless v1.0!!! Your function executed successfully!",
