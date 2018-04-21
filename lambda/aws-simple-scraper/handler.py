@@ -96,7 +96,7 @@ def ses_email(subject, body_text, body_html, sender, receiver):
 def hello(event, context):
     
     # Scrape jobs
-    jobs = scrape_site()
+    jobs = scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
     print(jobs)
     
     # Subject
