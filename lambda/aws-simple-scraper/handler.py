@@ -28,7 +28,7 @@ def schedule(event, context):
 
 def endpoint(event, context):
     
-    result = "Hello!!!!"
+    result = scrapeForJobsAndEmail()
     
     body = {
         "message": result        
