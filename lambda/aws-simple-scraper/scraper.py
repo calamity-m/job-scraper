@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 def resolve_span(div, attr):
     try:
         rtn = div.find(name="span", attrs=attr)
-        return rtn
+        return rtn.text.strip()
     except:
-        return ""
+        return None
 
 def scrape_site(url):
     # HTML page from requests
