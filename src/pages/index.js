@@ -60,10 +60,8 @@ class IndexPageC extends React.Component {
 
         return (
             <div>
-                <h1>HELLO M8S!</h1>
-                <p>Welcome to your new Gatsby site.</p>
-                <p>Now go build something great.</p>
-                <Link to="/page-2/">Go to page 2</Link>
+                <h1>Main Listed Jobs</h1>
+                <p>Below is a table of freshly web-scraped jobs.</p>
                 <p>{jsonObj.message[0].title}</p>
                 <ReactTable
                     data={jobData}
