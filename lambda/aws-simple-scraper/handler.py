@@ -3,6 +3,8 @@ import requests
 import boto3
 from botocore.exceptions import ClientError
 from bs4 import BeautifulSoup
+import scraper
+import emailer
 
 def resolve_span(div, attr):
     try:
@@ -96,7 +98,7 @@ def ses_email(subject, body_text, body_html, sender, receiver):
 def entry(event, context):
     
     # Scrape jobs
-    jobs = scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
+    jobs = scraper.scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
     
     # Subject
     SUBJECT = "Daily Web Job Scraping"
