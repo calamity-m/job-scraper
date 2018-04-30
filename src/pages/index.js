@@ -62,12 +62,12 @@ class IndexPageC extends React.Component {
             <div>
                 <h1>Main Listed Jobs</h1>
                 <p>Below is a table of freshly web-scraped jobs.</p>
-                <p>{jsonObj.message[0].title}</p>
                 <ReactTable
                     data={jobData}
                     columns={jobColumns}
                     defaultPageSize={10}
                 />
+                <p>NOTE: Jobs scraped from au.indeed.com </p>
             </div>    
 
             
