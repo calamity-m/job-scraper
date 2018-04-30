@@ -9,7 +9,7 @@ def entry(event, context):
     
     body = {
         "message": "Go Serverless v1.0!!! Your function executed successfully!",
-        "input": json.dumps(result)
+        "input": result
     }
 
     response = {
@@ -28,7 +28,7 @@ def schedule(event, context):
 
 def endpoint(event, context):
     
-    result = scrapeForJobsAndEmail()
+    result = scraper.scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
     
     body = {
         "message": result        
