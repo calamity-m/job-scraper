@@ -33,7 +33,7 @@ class IndexPageC extends React.Component {
         const jobColumns = [{
                 Header: 'Location',
                 accessor: 'location',
-                width: 50
+                width: 75
             }, {
                 Header: 'Title',
                 accessor: 'title',
@@ -49,6 +49,7 @@ class IndexPageC extends React.Component {
             }, {
                 Header: 'Date',
                 accessor: 'date',
+                width: 100
             }, {
                 Header: 'Link',
                 accessor: 'link',
