@@ -21,7 +21,7 @@ functions:
     handler: handler.schedule
     events:
         # Invoke
-        - schedule: rate(10 minutes)
+        - schedule: rate(3 hours)
     
 plugins:
   - serverless-python-requirements
