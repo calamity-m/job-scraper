@@ -3,6 +3,8 @@ import requests
 import boto3
 from botocore.exceptions import ClientError
 from bs4 import BeautifulSoup
+import scraper
+import email
 
 def resolve_span(div, attr):
     try:
@@ -93,10 +95,10 @@ def ses_email(subject, body_text, body_html, sender, receiver):
         print(response['ResponseMetadata']['RequestId'])
 
 
-def hello(event, context):
+def entry(event, context):
     
     # Scrape jobs
-    jobs = scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
+    jobs = scraper.scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
     
     # Subject
     SUBJECT = "Daily Web Job Scraping"
@@ -127,7 +129,7 @@ def hello(event, context):
         </html>
         """
 
-    ses_email(SUBJECT, BODY_TEXT, display, "markmonteno@gmail.com", "markmonteno@gmail.com")
+    email.ses_email(SUBJECT, BODY_TEXT, display, "markmonteno@gmail.com", "markmonteno@gmail.com")
     
     body = {
         "message": "Go Serverless v1.0!!! Your function executed successfully!",

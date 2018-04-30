@@ -15,8 +15,8 @@ provider:
         Resource: "*"
   
 functions:
-  hello:
-    handler: handler.hello
+  scrape:
+    handler: handler.entry
     
 plugins:
   - serverless-python-requirements
