@@ -10,15 +10,15 @@ const Layout = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Website scraping for open job listings' },
+        { name: 'keywords', content: 'Scraping, Job, Listing, Website, Lambda, AWS' },
       ]}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
     <div
       style={{
         margin: '0 auto',
-        maxWidth: 960,
+        maxWidth: 1160,
         padding: '0px 1.0875rem 1.45rem',
         paddingTop: 0,
       }}
