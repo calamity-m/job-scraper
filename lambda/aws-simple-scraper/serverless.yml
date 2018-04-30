@@ -17,6 +17,11 @@ provider:
 functions:
   scrape:
     handler: handler.entry
+  scheduled-cron:
+    handler: handler.schedule
+    events:
+        # Invoke
+        - schedule: rate(10 minutes)
     
 plugins:
   - serverless-python-requirements
