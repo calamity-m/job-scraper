@@ -4,7 +4,22 @@ import emailer
 
 def entry(event, context):
     
-    # Scrape jobs
+    result = scrapeForJobsAndEmail()
+    
+    body = {
+        "message": "Go Serverless v1.0!!! Your function executed successfully!",
+        "input": event
+    }
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response
+
+def scrapeForJobsAndEmail():
+     # Scrape jobs
     jobs = scraper.scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")
     
     # Subject
@@ -39,14 +54,4 @@ def entry(event, context):
 
     emailer.ses_email(SUBJECT, BODY_TEXT, display, "markmonteno@gmail.com", "markmonteno@gmail.com")
     
-    body = {
-        "message": "Go Serverless v1.0!!! Your function executed successfully!",
-        "input": event
-    }
-
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    }
-
-    return response
+    return jobs
