@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import ReactTable from "react-table";
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import axios from "axios";
 import 'react-table/react-table.css';
 
