@@ -28,8 +28,9 @@ def entry(event, context):
         <b>Location:</b> %s <br>
         <b>Date:</b> %s <br>
         <b>Salary:</b> %s </p>
+        <b>Link:</b> %s </p>
         <br> """ %(j.get("title"), j.get("company"), j.get("description"), 
-        j.get("location"), j.get("date"), j.get("salary"))
+        j.get("location"), j.get("date"), j.get("salary"), j.get("link"))
 
     display += """
         </body>

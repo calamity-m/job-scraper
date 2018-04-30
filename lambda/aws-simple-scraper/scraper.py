@@ -22,6 +22,9 @@ def scrape_site(url):
     for div in soup.find_all(name="div", attrs={"class": "result"}):
         # Title
         title = div.find(name="a", attrs={"data-tn-element":"jobTitle"})["title"]
+        # Link
+        link = "https://au.indeed.com"
+        link += div.find(name="a")['href']
         # Company
         company = div.find(name="span", attrs={"class":"company"}).text.strip()
         # Location
@@ -43,7 +46,8 @@ def scrape_site(url):
                'location': location,
                'description': description,
                'date': date,
-               'salary': salary,})
+               'salary': salary,
+               'link': link,})
 
     # Return our jobs dict
     return jobs
