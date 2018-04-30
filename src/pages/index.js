@@ -1,18 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import ReactTable from "react-table";
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import axios from "axios";
-import 'react-table/react-table.css'
-
-
-const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
-)
+import 'react-table/react-table.css';
 
 class IndexPageC extends React.Component {
 
@@ -25,6 +16,7 @@ class IndexPageC extends React.Component {
     }
 
     componentDidMount() {
+        
         axios.get('https://wbnd78ok7l.execute-api.us-west-2.amazonaws.com/dev/ping')
             .then(response => {
                 this.setState({
@@ -32,6 +24,7 @@ class IndexPageC extends React.Component {
                 })
             })
             .catch(err => console.log(err))
+        
     }
 
     render() {
@@ -40,7 +33,8 @@ class IndexPageC extends React.Component {
 
         const jobColumns = [{
                 Header: 'Location',
-                accessor: 'location' // String-based value accessors!
+                accessor: 'location',
+                width: 50
             }, {
                 Header: 'Title',
                 accessor: 'title',
@@ -56,6 +50,9 @@ class IndexPageC extends React.Component {
             }, {
                 Header: 'Date',
                 accessor: 'date',
+            }, {
+                Header: 'Link',
+                accessor: 'link',
             }]
 
         return (
