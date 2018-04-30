@@ -28,6 +28,7 @@ functions:
         - http:
             path: ping
             method: get
+            cors: true
     
 plugins:
   - serverless-python-requirements
