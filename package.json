@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "job-scraper",
+  "description": "Web Scraper for Job Listings on Indeed",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Monteno M",
   "dependencies": {
     "axios": "^0.18.0",
     "gatsby": "^1.9.247",
