@@ -1,4 +1,5 @@
 import json
+import datetime
 import scraper
 import emailer
 
@@ -8,7 +9,7 @@ def entry(event, context):
     
     body = {
         "message": "Go Serverless v1.0!!! Your function executed successfully!",
-        "input": event
+        "input": json.dumps(result)
     }
 
     response = {
@@ -17,6 +18,13 @@ def entry(event, context):
     }
 
     return response
+
+def schedule(event, context):
+    currTime = datetime.datetime.now().time()
+    
+    scrapeForJobsAndEmail()
+    
+    print(currTime)
 
 def scrapeForJobsAndEmail():
      # Scrape jobs
