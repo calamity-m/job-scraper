@@ -26,6 +26,21 @@ def schedule(event, context):
     
     print(currTime)
 
+def endpoint(event, context):
+    
+    result = "Hello!!!!"
+    
+    body = {
+        "message": result        
+    }
+    
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+    
+    return response
+
 def scrapeForJobsAndEmail():
      # Scrape jobs
     jobs = scraper.scrape_site("https://au.indeed.com/jobs?q=software+engineer&l=Canberra+ACT&sort=date")

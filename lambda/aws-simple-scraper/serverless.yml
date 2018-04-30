@@ -22,6 +22,12 @@ functions:
     events:
         # Invoke
         - schedule: rate(3 hours)
+  http-get:
+    handler: handler.endpoint
+    events:
+        - http:
+            path: ping
+            method: get
     
 plugins:
   - serverless-python-requirements
