@@ -65,6 +65,8 @@ class IndexPageC extends React.Component {
                     defaultPageSize={10}
                 />
                 <p>NOTE: Jobs scraped from au.indeed.com </p>
+                <br />
+                <p> Copyright Mark Monteno (u3154816) </p>
             </div>    
 
             
