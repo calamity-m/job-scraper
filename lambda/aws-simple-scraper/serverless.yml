@@ -15,15 +15,13 @@ provider:
         Resource: "*"
   
 functions:
-  scrape:
-    handler: handler.entry
   scheduled-cron:
-    handler: handler.schedule
+    handler: handler.schedule_entry
     events:
         # Invoke
         - schedule: rate(3 hours)
   http-get:
-    handler: handler.endpoint
+    handler: handler.api_entry
     events:
         - http:
             path: ping
