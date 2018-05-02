@@ -1,7 +1,13 @@
+# ************************************
+# Authors: Mark Monteno (u3154816)
+# Assignment 1 Term project: Serverless Computing
+# Configuration file for Serverless
+# ************************************
 
-
+# Name of our service
 service: aws-simple-scraper
 
+# Provider information, etc.
 provider:
   name: aws
   runtime: python3.6
@@ -14,6 +20,7 @@ provider:
             - ses:SendEmail
         Resource: "*"
   
+# Function information, etc.  
 functions:
   scheduled-cron:
     handler: handler.schedule_entry
@@ -28,5 +35,6 @@ functions:
             method: get
             cors: true
     
+# Plugin requirements, etc.    
 plugins:
   - serverless-python-requirements
