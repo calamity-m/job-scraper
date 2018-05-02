@@ -1,6 +1,13 @@
+# ************************************
+# Authors: Mark Monteno (u3154816)
+# Assignment 1 Term project: Serverless Computing
+# Built using Python 3.6
+# ************************************
+
 import boto3
 from botocore.exceptions import ClientError
 
+# Send an email via Amazon SES using the given parameters
 def ses_email(subject, body_text, body_html, sender, receiver):
     # Charset for our SES Email
     CHARSET = "UTF-8"

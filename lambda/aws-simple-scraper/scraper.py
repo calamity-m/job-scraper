@@ -1,6 +1,13 @@
+# ************************************
+# Authors: Mark Monteno (u3154816)
+# Assignment 1 Term project: Serverless Computing
+# Built using Python 3.6
+# ************************************
+
 import requests
 from bs4 import BeautifulSoup
 
+# Try to find the given attribute and return null if not found
 def resolve_span(div, attr):
     try:
         rtn = div.find(name="span", attrs=attr)
@@ -8,6 +15,7 @@ def resolve_span(div, attr):
     except:
         return None
 
+# Scrape the given URL for job data and return as a python dictionary
 def scrape_site(url):
     # HTML page from requests
     html = requests.get(url)
