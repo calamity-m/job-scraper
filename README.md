@@ -99,6 +99,11 @@ Step 5: Deploy with your method of choice
 
 ### Screenshots
 
+Screenshot1:
+![job-scraper](https://user-images.githubusercontent.com/11038569/39620113-6c4714a4-4fcd-11e8-8a52-4c3c9801f2c6.png)
+Screenshot 2:
+![job-scraper-email](https://user-images.githubusercontent.com/11038569/39620118-71380dd8-4fcd-11e8-81e1-bcb20a16de81.png)
+
 ## References
 
 Amazon Web Services, Inc. 2018, _AWS Lambda Features_, accessed 1 May 2018, <https://aws.amazon.com/lambda/features/>.
