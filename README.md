@@ -7,6 +7,8 @@ A simple, yet in-depth system that manages to gather and provide information on 
 - Uses Gatsby for static site generation to act as a front-end view
 - Easily scalable and expandable
 
+You can view this application in progress via the following link: http://monteno-csc-2018.surge.sh/
+
 ## Contents
 - [Todo](#todo)
 - [Architecutre](#architecutre)
