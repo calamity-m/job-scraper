@@ -1,9 +1,9 @@
 # Project dependencies
-.cache
-node_modules
-yarn-error.log
+/website/.cache
+/website/node_modules
+/website/yarn-error.log
 
 # Build directory
-/public
-.DS_Store
-/.vs
+/website/public
+/website/.DS_Store
+/website/.vs
