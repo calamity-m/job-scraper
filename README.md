@@ -57,7 +57,7 @@ functions:
 ...
 ```
 
-Step 2: Change endpoint in web front-end from above step
+Step 2: Change endpoint in web front-end from above step in pages/index.js
 ```javascript
 axios.get('https://xxx.execute-api.us-west-2.amazonaws.com/dev/ping')
             .then(response => {
@@ -69,7 +69,7 @@ axios.get('https://xxx.execute-api.us-west-2.amazonaws.com/dev/ping')
 ```
 Replace 'xxx' with your endpoint
 
-Step 3: Change email information in Lambda function
+Step 3: Change email information in Lambda function handler.py
 ```python
 emailer.ses_email(SUBJECT, BODY_TEXT, body, "sender@domain.com", "receiver@domain.com")
 ```
