@@ -26,7 +26,7 @@ functions:
     handler: handler.schedule_entry
     events:
         # Invoke
-        - schedule: rate(3 hours)
+        - schedule: rate(24 hours)
   http-get:
     handler: handler.api_entry
     events:
