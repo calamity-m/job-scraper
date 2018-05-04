@@ -13,7 +13,7 @@ A simple, yet in-depth system that manages to gather and provide information on 
 - [Prerequisites](#prerequisites)
 - [Deployment](#deployment)
 - [Examples](#examples)
-	- [Screenshots](#Screenshots)
+	- [Screenshots](#screenshots)
 - [References](#references)
 
 ## Architecture
