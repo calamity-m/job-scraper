@@ -16,6 +16,7 @@ class IndexPageC extends React.Component {
 
     componentDidMount() {
         
+        // Change this to your endpoint given from serverless
         axios.get('https://xxxxx.execute-api.us-west-2.amazonaws.com/dev/ping')
             .then(response => {
                 this.setState({
