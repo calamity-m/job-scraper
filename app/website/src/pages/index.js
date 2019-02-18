@@ -16,7 +16,7 @@ class IndexPageC extends React.Component {
 
     componentDidMount() {
         
-        axios.get('https://wbnd78ok7l.execute-api.us-west-2.amazonaws.com/dev/ping')
+        axios.get('https://xxxxx.execute-api.us-west-2.amazonaws.com/dev/ping')
             .then(response => {
                 this.setState({
                     apiData: response.data.message
