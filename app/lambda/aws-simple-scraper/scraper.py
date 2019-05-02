@@ -34,11 +34,17 @@ def scrape_site(url):
         link = "https://au.indeed.com"
         link += div.find(name="a")['href']
         # Company
-        company = div.find(name="span", attrs={"class":"company"}).text.strip()
+        company = resolve_span(div, {"class":"company"})
+        if company is None:
+            company = "Not Found"
         # Location
-        location = div.find(name="span", attrs={"class":"location"}).text.strip()
+        location = resolve_span(div, {"class":"location"})
+        if location is None:
+            location = "Not Found"
         # Description
-        description = div.find(name="span", attrs={"class":"summary"}).text.strip()
+        description = resolve_span(div, {"class":"summary"})
+        if description is None:
+            description = "Not Found"
         # Date
         date = resolve_span(div, {"class":"date"})
         if date is None:
